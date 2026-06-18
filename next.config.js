@@ -5,8 +5,7 @@ const nextConfig = {
         remotePatterns: [
             {
                 protocol: "https",
-                hostname: "www.nia.nih.gov",
-                port: "",
+                hostname: "images.pexels.com",
                 pathname: "/**",
             },
         ],
