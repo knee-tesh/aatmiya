@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #1A1A1A;
+  --color-parchment: #FBF6ED;
+  --color-amber: #D4A853;
+  --color-walnut: #8B5E3C;
+  --color-tamarind: #6B3A2A;
+  --color-cotton: #FFFFFF;
+
+  --font-prata: Prata, serif;
+  --font-source-serif: "Source Serif 4", serif;
+  --font-inter: Inter, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-parchment text-ink font-source-serif;
+  }
+
+  h1 {
+    @apply font-prata text-5xl;
+  }
+
+  h2 {
+    @apply font-prata text-4xl;
+  }
+
+  h3 {
+    @apply font-prata text-2xl;
+  }
+}
+
+@layer utilities {
+  .section-spacing {
+    @apply py-16 md:py-24;
+  }
+
+  .max-content {
+    @apply max-w-6xl mx-auto px-4 md:px-8;
+  }
+}
+
+*:focus-visible {
+  outline: 2px solid #D4A853;
+  outline-offset: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  z-index: 100;
+  padding: 8px 16px;
+  background: #8B5E3C;
+  color: #FFFFFF;
+  font-family: Inter, sans-serif;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+::selection {
+  background: #D4A853;
+  color: #1A1A1A;
+}
