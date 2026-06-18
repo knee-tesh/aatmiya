@@ -3,7 +3,6 @@ import Footer from "@/components/Footer";
 import SectionDivider from "@/components/SectionDivider";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Heart, Target, Users } from "lucide-react";
 
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
@@ -40,18 +39,14 @@ function StorySpread() {
             className="font-source-serif text-base leading-relaxed text-ink/80 space-y-4"
           >
             <p>
-              <span className="font-prata text-[72px] text-amber float-left mr-2 leading-none">
-                A
-              </span>
-              atmiya was born from a simple belief — that every elder deserves to
-              feel seen, valued, and loved. Founded in 2016 by a group of friends
-              who saw their own grandparents struggling with loneliness, we started
-              with small weekly meetups in a Delhi community hall.
+              Aatmiya was founded with a simple belief: every elder deserves
+              companionship, dignity, and purpose.
             </p>
             <p>
-              What began as a handful of people playing carrom and sharing chai has
-              grown into a movement spanning 15 cities, touching the lives of
-              thousands of elders across India.
+              Aatmiya is a non-profit organisation dedicated to providing elderly
+              citizens with compassionate companionship, engaging group activities,
+              and accessible healthcare services. We believe that aging should be
+              celebrated, not isolated.
             </p>
           </motion.div>
           <motion.div
@@ -59,15 +54,14 @@ function StorySpread() {
             className="font-source-serif text-base leading-relaxed text-ink/80 space-y-4"
           >
             <p>
-              Our name, Aatmiya, means &ldquo;of the soul&rdquo; — it reflects our
-              belief that care for the elderly isn&rsquo;t a transaction, but a
-              relationship. Every game of chess, every health checkup, every shared
-              meal is an act of dignity and love.
+              Based in Lucknow, we organize regular health checkup camps, community
+              meetups, games and activities, wellness sessions, and counselling
+              services — all designed to bring joy, health, and connection to the
+              lives of our elderly community members.
             </p>
             <p>
-              Today, we run health camps, activity centers, and companionship
-              programs — and we&rsquo;re just getting started. Our vision is an
-              India where no elder feels alone.
+              Our name, Aatmiya, means &ldquo;of the soul&rdquo; — reflecting our
+              commitment to care that comes from the heart.
             </p>
           </motion.div>
         </div>
@@ -76,57 +70,27 @@ function StorySpread() {
   );
 }
 
-function MissionVision() {
+function StoryImage() {
   return (
-    <section className="section-spacing bg-parchment/50">
+    <section className="section-spacing">
       <div className="max-content">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <motion.div
-            initial={{ opacity: 0, x: -24 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="bg-cotton rounded-lg p-8 shadow-sm border-l-4 border-amber"
-          >
-            <Heart className="text-amber mb-4" size={32} />
-            <p className="font-inter text-sm tracking-wider uppercase text-amber mb-2">
-              Our Mission
-            </p>
-            <p className="font-source-serif text-base leading-relaxed text-ink/80">
-              To provide elderly citizens with dignity, joy, and connection
-              through accessible health services, engaging activities, and
-              meaningful companionship.
-            </p>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, x: 24 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="bg-cotton rounded-lg p-8 shadow-sm border-l-4 border-amber"
-          >
-            <Target className="text-amber mb-4" size={32} />
-            <p className="font-inter text-sm tracking-wider uppercase text-amber mb-2">
-              Our Vision
-            </p>
-            <p className="font-source-serif text-base leading-relaxed text-ink/80">
-              An India where every elder lives with dignity, purpose, and
-              connection — and no one spends their golden years alone.
-            </p>
-          </motion.div>
-        </div>
+        <motion.div {...fadeUp}>
+          <Image
+            src="/images/indian-grandparents.jpg"
+            alt="Aatmiya community gathering"
+            width={1200}
+            height={600}
+            className="w-full rounded-lg object-cover"
+          />
+        </motion.div>
       </div>
     </section>
   );
 }
 
 const team = [
-  { name: "Anita Sharma", role: "Founder & Director", initial: "A" },
-  { name: "Rajesh Kumar", role: "Programs Manager", initial: "R" },
-  { name: "Priya Patel", role: "Health Services Lead", initial: "P" },
-  { name: "Vikram Singh", role: "Community Outreach", initial: "V" },
-  { name: "Meera Iyer", role: "Volunteer Coordinator", initial: "M" },
-  { name: "Arun Nair", role: "Operations Head", initial: "A" },
+  { name: "Piyush Tiwari", role: "Founder", initial: "P", phone: "+91-8176060674" },
+  { name: "UN Tiwari", role: "Trustee / Wellbeing Counsellor", initial: "U", phone: "+91-8299641211" },
 ];
 
 function TeamSection() {
@@ -137,10 +101,10 @@ function TeamSection() {
           <p className="font-inter text-sm tracking-wider uppercase text-amber mb-3">
             The People
           </p>
-          <h2 className="font-prata text-4xl">Meet Our Team</h2>
+          <h2 className="font-prata text-4xl">Our Team</h2>
         </div>
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto"
           initial="initial"
           whileInView="animate"
           viewport={{ once: true, amount: 0.3 }}
@@ -168,7 +132,8 @@ function TeamSection() {
                 </span>
               </div>
               <h3 className="font-inter text-base font-semibold">{person.name}</h3>
-              <p className="font-source-serif text-sm text-ink/60">{person.role}</p>
+              <p className="font-source-serif text-sm text-ink/60 mb-1">{person.role}</p>
+              <p className="font-inter text-xs text-ink/40">{person.phone}</p>
             </motion.div>
           ))}
         </motion.div>
@@ -186,7 +151,7 @@ export default function About() {
         <SectionDivider />
         <StorySpread />
         <SectionDivider />
-        <MissionVision />
+        <StoryImage />
         <SectionDivider />
         <TeamSection />
       </main>
