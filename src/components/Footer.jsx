@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { MapPin, Phone, Mail, Instagram, Facebook, Youtube } from "lucide-react";
+import { Phone, Mail, HeartHandshake, Share2, Play } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -48,23 +48,23 @@ export default function Footer() {
               Get in Touch
             </h3>
             <div className="flex flex-col gap-4">
-              <div className="flex items-start gap-3">
-                <MapPin size={16} className="mt-0.5 shrink-0 text-amber" />
-                <span className="font-inter text-sm opacity-80">
-                  123, Gandhi Marg, New Delhi
-                </span>
+              <div className="flex items-center gap-3">
+                <Phone size={16} className="shrink-0 text-amber" />
+                <div>
+                  <p className="font-inter text-sm opacity-80">Piyush Tiwari (Founder)</p>
+                  <p className="font-inter text-sm opacity-80">+91-8176060674</p>
+                </div>
               </div>
               <div className="flex items-center gap-3">
                 <Phone size={16} className="shrink-0 text-amber" />
-                <span className="font-inter text-sm opacity-80">
-                  +91 98765 43210
-                </span>
+                <div>
+                  <p className="font-inter text-sm opacity-80">UN Tiwari (Trustee)</p>
+                  <p className="font-inter text-sm opacity-80">+91-8299641211</p>
+                </div>
               </div>
               <div className="flex items-center gap-3">
                 <Mail size={16} className="shrink-0 text-amber" />
-                <span className="font-inter text-sm opacity-80">
-                  hello@aatmiya.org
-                </span>
+                <span className="font-inter text-sm opacity-80">hello@aatmiya.org</span>
               </div>
             </div>
           </div>
@@ -79,21 +79,21 @@ export default function Footer() {
                 className="p-2 border border-cotton/30 rounded-full hover:border-amber hover:text-amber transition-all"
                 aria-label="Instagram"
               >
-                <Instagram size={18} />
+                <HeartHandshake size={18} />
               </a>
               <a
                 href="#"
                 className="p-2 border border-cotton/30 rounded-full hover:border-amber hover:text-amber transition-all"
                 aria-label="Facebook"
               >
-                <Facebook size={18} />
+                <Share2 size={18} />
               </a>
               <a
                 href="#"
                 className="p-2 border border-cotton/30 rounded-full hover:border-amber hover:text-amber transition-all"
                 aria-label="YouTube"
               >
-                <Youtube size={18} />
+                <Play size={18} />
               </a>
             </div>
           </div>

@@ -1,7 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
-import { MapPin, Phone, Mail, Clock, Send, CheckCircle, AlertCircle } from "lucide-react";
+import { Phone, Mail, Send, CheckCircle, AlertCircle } from "lucide-react";
 import { useState } from "react";
 
 export default function Contact() {
@@ -55,7 +55,7 @@ export default function Contact() {
             <div className="mb-12">
               <h1 className="font-prata text-4xl md:text-5xl mb-4">Reach Out</h1>
               <p className="font-source-serif text-lg text-ink/60">
-                We'd love to hear from you. Whether you want to volunteer, donate, or just say hello.
+                We'd love to hear from you. Whether you want to volunteer, donate, partner, or just learn more — reach out.
               </p>
             </div>
 
@@ -109,11 +109,12 @@ export default function Contact() {
                     onChange={(e) => setForm({ ...form, subject: e.target.value })}
                     className="w-full px-4 py-3 rounded-md border border-ink/10 bg-cotton font-inter text-sm focus:outline-none focus:ring-2 focus:ring-amber"
                   >
-                    <option value="">Select a subject</option>
-                    <option value="Volunteer">Volunteer</option>
-                    <option value="Donate">Donate</option>
-                    <option value="Service Inquiry">Service Inquiry</option>
-                    <option value="General">General</option>
+                    <option value="">I'm interested in...</option>
+                    <option value="Volunteering">Volunteering</option>
+                    <option value="Donation">Making a Donation</option>
+                    <option value="Partnering">Partnering</option>
+                    <option value="Services">Accessing Services</option>
+                    <option value="General">Something Else</option>
                   </select>
                   {errors.subject && <p className="font-inter text-xs text-tamarind mt-1">{errors.subject}</p>}
                 </div>
@@ -157,32 +158,26 @@ export default function Contact() {
 
               <div className="lg:col-span-2">
                 <div className="bg-cotton rounded-lg p-8 shadow-sm space-y-6">
-                  <div className="flex items-start gap-4">
-                    <MapPin className="text-amber shrink-0 mt-1" size={20} />
-                    <div>
-                      <h3 className="font-inter text-sm font-semibold">Address</h3>
-                      <p className="font-source-serif text-sm text-ink/70">123, Gandhi Marg, New Delhi</p>
+                  <div>
+                    <h3 className="font-inter text-sm font-semibold text-amber tracking-wider uppercase mb-4">Reach Us Directly</h3>
+                    <p className="font-source-serif text-sm text-ink/60 mb-4">Prefer a conversation? Call or reach out to our team.</p>
+
+                    <div className="flex items-start gap-4">
+                      <Phone className="text-amber shrink-0 mt-1" size={20} />
+                      <div>
+                        <p className="font-inter text-sm font-semibold">Piyush Tiwari</p>
+                        <p className="font-source-serif text-xs text-ink/50">Founder</p>
+                        <p className="font-inter text-sm text-ink/70 mt-1">+91-8176060674</p>
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex items-start gap-4">
-                    <Phone className="text-amber shrink-0 mt-1" size={20} />
-                    <div>
-                      <h3 className="font-inter text-sm font-semibold">Phone</h3>
-                      <p className="font-source-serif text-sm text-ink/70">+91 98765 43210</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-4">
-                    <Mail className="text-amber shrink-0 mt-1" size={20} />
-                    <div>
-                      <h3 className="font-inter text-sm font-semibold">Email</h3>
-                      <p className="font-source-serif text-sm text-ink/70">hello@aatmiya.org</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-4">
-                    <Clock className="text-amber shrink-0 mt-1" size={20} />
-                    <div>
-                      <h3 className="font-inter text-sm font-semibold">Hours</h3>
-                      <p className="font-source-serif text-sm text-ink/70">Mon–Sat: 9:00 AM – 6:00 PM</p>
+
+                    <div className="flex items-start gap-4 mt-6">
+                      <Phone className="text-amber shrink-0 mt-1" size={20} />
+                      <div>
+                        <p className="font-inter text-sm font-semibold">UN Tiwari</p>
+                        <p className="font-source-serif text-xs text-ink/50">Trustee / Wellbeing Counsellor</p>
+                        <p className="font-inter text-sm text-ink/70 mt-1">+91-8299641211</p>
+                      </div>
                     </div>
                   </div>
                 </div>
