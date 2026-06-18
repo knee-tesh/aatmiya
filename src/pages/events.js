@@ -3,44 +3,28 @@ import Footer from "@/components/Footer";
 import SectionDivider from "@/components/SectionDivider";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Calendar, MapPin, ChevronRight } from "lucide-react";
+import { MapPin } from "lucide-react";
 
 const upcomingEvents = [
   {
     month: "JUL",
     day: "15",
-    title: "Grandparents Day Celebration",
-    desc: "A special day of games, music, and storytelling at our Hauz Khas community center.",
-    time: "10:00 AM - 4:00 PM",
+    title: "Free Health CheckUp Camp",
+    desc: "We organise frequent free health checkup camps around Alambagh, Lucknow. We offer free medical consultation by General Physicians and Surgeons. Our panel includes Dr. Arpit Tripathi (M.S.), Dr. Neha Singh (M.S.), Dr. Nilesh Tiwari (MBBS) and Dr. Bhupati Patel (M.S.).",
+    time: "Alambagh, Lucknow",
   },
   {
-    month: "AUG",
-    day: "5",
-    title: "Health & Wellness Camp",
-    desc: "Free health checkups, eye tests, and wellness consultations for seniors at our Dwarka center.",
-    time: "9:00 AM - 2:00 PM",
-  },
-  {
-    month: "SEP",
-    day: "12",
-    title: "Intergenerational Storytelling",
-    desc: "Elders share life stories with school children — a beautiful exchange of wisdom and wonder.",
-    time: "11:00 AM - 1:00 PM",
-  },
-  {
-    month: "OCT",
-    day: "1",
-    title: "International Day of Older Persons",
-    desc: "A city-wide celebration with performances, health camps, and community recognition awards.",
-    time: "9:00 AM - 6:00 PM",
+    month: "JUL",
+    day: "22",
+    title: "Community MeetUp",
+    desc: "We organise community meetups in Lucknow, encouraging the community to interact and build bonds. We provide various activities, engaging them in fruitful and healthy communication.",
+    time: "Lucknow",
   },
 ];
 
 const pastEvents = [
-  { img: "/images/indian-family.jpg", title: "Spring Festival 2026", date: "March 20, 2026" },
-  { img: "/images/indian-elder-man.jpg", title: "Art & Memory Workshop", date: "February 14, 2026" },
-  { img: "/images/indian-family.jpg", title: "Winter Health Camp", date: "January 8, 2026" },
-  { img: "/images/indian-elder-man.jpg", title: "Diwali Celebrations", date: "October 31, 2025" },
+  { img: "/images/indian-elder-man.jpg", title: "Health Camp — Alambagh", date: "March 2026" },
+  { img: "/images/indian-family.jpg", title: "Community MeetUp — Lucknow", date: "February 2026" },
 ];
 
 export default function Events() {
@@ -80,7 +64,7 @@ export default function Events() {
                     <h3 className="font-inter text-base font-semibold mb-1">{event.title}</h3>
                     <p className="font-source-serif text-sm text-ink/70 mb-2">{event.desc}</p>
                     <div className="flex items-center gap-2 text-ink/50">
-                      <Calendar size={13} />
+                      <MapPin size={13} />
                       <span className="font-inter text-xs">{event.time}</span>
                     </div>
                   </div>

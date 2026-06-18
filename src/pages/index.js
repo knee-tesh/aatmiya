@@ -4,7 +4,7 @@ import SectionDivider from "@/components/SectionDivider";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Heart, Users, Calendar, Gamepad2, Stethoscope, ChevronRight } from "lucide-react";
+
 
 function HeroSection() {
   return (
@@ -24,14 +24,21 @@ function HeroSection() {
           transition={{ duration: 1, ease: "easeOut" }}
         >
           <h1 className="font-prata text-4xl md:text-5xl lg:text-6xl text-cotton max-w-3xl leading-tight">
-            Care That Comes From the Soul
+            Where every elder finds community, care & purpose
           </h1>
           <p className="font-source-serif text-lg md:text-xl text-cotton/80 mt-4 max-w-xl">
-            Aatmiya is a non-profit dedicated to providing elderly citizens with group activities, health services, and companionship.
+            Aatmiya is a non-profit organisation dedicated to serving our elderly community with dignity, companionship, and compassionate care through group activities, health services, and meaningful connection.
           </p>
-          <button className="mt-8 bg-walnut text-cotton font-inter text-sm tracking-wider uppercase px-8 py-3 rounded-md hover:bg-tamarind transition-colors">
-            Join Us as a Volunteer
-          </button>
+          <div className="mt-8 flex flex-wrap gap-4">
+            <button className="bg-walnut text-cotton font-inter text-sm tracking-wider uppercase px-8 py-3 rounded-md hover:bg-tamarind transition-colors">
+              Join Us as a Volunteer
+            </button>
+            <Link href="/contact">
+              <button className="border border-cotton text-cotton font-inter text-sm tracking-wider uppercase px-8 py-3 rounded-md bg-transparent hover:bg-cotton/10 transition-colors">
+                Support Our Work
+              </button>
+            </Link>
+          </div>
         </motion.div>
       </div>
     </section>
@@ -42,11 +49,12 @@ function StatsSection() {
   return (
     <section className="bg-walnut text-cotton py-16">
       <div className="max-content">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
           {[
-            { number: "3,000+", label: "Elders Cared For" },
-            { number: "15", label: "Cities Across India" },
-            { number: "10", label: "Years of Service" },
+            { number: "200+", label: "Elders Served" },
+            { number: "12+", label: "Events Organized" },
+            { number: "5+", label: "Services Offered" },
+            { number: "8+", label: "Active Volunteers" },
           ].map((stat, i) => (
             <motion.div
               key={i}
@@ -91,16 +99,14 @@ function PurposeSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <p className="font-inter text-sm tracking-wider uppercase text-amber mb-3">Our Purpose</p>
-            <h2 className="font-prata text-4xl mb-6">Every Elder Deserves Dignity</h2>
+            <p className="font-inter text-sm tracking-wider uppercase text-amber mb-3">About Aatmiya</p>
+            <h2 className="font-prata text-4xl mb-6">Celebrating Our Elders</h2>
             <div className="font-source-serif text-base leading-relaxed space-y-4 text-ink/80">
               <p>
-                Aatmiya means "of the soul" — and that is what drives us. We believe that every elder
-                deserves to live with dignity, joy, and connection.
+                Aatmiya is a non-profit organisation dedicated to providing elderly citizens with compassionate companionship, engaging group activities, and accessible healthcare services. We believe that aging should be celebrated, not isolated.
               </p>
               <p>
-                Through group activities, health services, and companionship programs, we bring warmth
-                to the golden years of thousands across India.
+                Based in Lucknow, we organize regular health checkup camps, community meetups, games and activities, wellness sessions, and counselling services — all designed to bring joy, health, and connection to the lives of our elderly community members.
               </p>
             </div>
           </motion.div>
@@ -115,20 +121,22 @@ function ServicesSection() {
     <section className="section-spacing bg-parchment/50">
       <div className="max-content">
         <div className="text-center mb-12">
-          <p className="font-inter text-sm tracking-wider uppercase text-amber mb-3">What We Do</p>
-          <h2 className="font-prata text-4xl">Our Services</h2>
+          <h2 className="font-prata text-4xl">What We Do</h2>
         </div>
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6"
           initial="initial"
           whileInView="animate"
           viewport={{ once: true, amount: 0.3 }}
           variants={{ initial: {}, animate: { transition: { staggerChildren: 0.1 } } }}
         >
           {[
-            { icon: Stethoscope, title: "Health Checkup Camps", desc: "Regular medical checkups and wellness sessions at community centers across Delhi NCR." },
-            { icon: Gamepad2, title: "Games & Activities", desc: "Indoor and outdoor activities — from carrom and chess to morning walks and yoga." },
-            { icon: Users, title: "Community Meetups", desc: "Weekly gatherings where elders connect, share stories, and build lasting friendships." },
+            { icon: "🏥", title: "Health Checkup Camps", desc: "Free medical consultations with general physicians and surgeons to ensure regular health monitoring." },
+            { icon: "♟️", title: "Games & Activities", desc: "Carrom, chess, card games, and group activities that keep minds sharp and spirits high." },
+            { icon: "👥", title: "Community Meetups", desc: "Regular social gatherings where elders build bonds, share stories, and find companionship." },
+            { icon: "🧘", title: "Wellness Sessions", desc: "Health talks, light exercise, and wellness workshops promoting active and healthy aging." },
+            { icon: "💬", title: "Counselling", desc: "Emotional support and guidance from trained wellbeing counsellors who truly care." },
+            { icon: "🏠", title: "Companionship", desc: "Home visits for elders who cannot travel, bringing company and care to their doorstep." },
           ].map((service, i) => (
             <motion.div
               key={i}
@@ -139,7 +147,7 @@ function ServicesSection() {
               }}
             >
               <div className="w-12 h-12 rounded-full bg-amber/10 flex items-center justify-center mb-4">
-                <service.icon className="text-amber" size={24} />
+                <span className="text-2xl">{service.icon}</span>
               </div>
               <h3 className="font-inter text-base font-semibold mb-2">{service.title}</h3>
               <p className="font-source-serif text-sm leading-relaxed text-ink/70">{service.desc}</p>
@@ -167,8 +175,8 @@ function EventsSection() {
           variants={{ initial: {}, animate: { transition: { staggerChildren: 0.1 } } }}
         >
           {[
-            { date: "JUL 15", title: "Grandparents Day Celebration", desc: "A special day of games, music, and storytelling at our community center." },
-            { date: "AUG 5", title: "Health & Wellness Camp", desc: "Free health checkups, eye tests, and wellness consultations for seniors." },
+            { date: "JUL 15", title: "Free Health CheckUp Camp", desc: "We organise frequent free health checkup camps around Alambagh, Lucknow. We offer free medical consultation by General Physicians and Surgeons. Our panel includes Dr. Arpit Tripathi (M.S.), Dr. Neha Singh (M.S.), Dr. Nilesh Tiwari (MBBS) and Dr. Bhupati Patel (M.S.)." },
+            { date: "JUL 22", title: "Community MeetUp", desc: "We organise community meetups in Lucknow, encouraging the community to interact and build bonds. We provide various activities, engaging them in fruitful and healthy communication." },
           ].map((event, i) => (
             <motion.div
               key={i}
@@ -209,11 +217,10 @@ function TestimonialSection() {
         >
           <span className="font-prata text-7xl md:text-8xl text-amber/30 leading-none block">"</span>
           <blockquote className="font-source-serif text-xl md:text-2xl italic leading-relaxed max-w-3xl mx-auto -mt-4">
-            Aatmiya gave my father his smile back. The companionship and care they provide is not just
-            a service — it's family.
+            Aatmiya gave me a new family. I look forward to every meetup — it's the highlight of my week.
           </blockquote>
           <p className="font-inter text-sm text-ink/60 mt-6">
-            — Priya Sharma, Daughter
+            — Mrs. Sharma, 72
           </p>
         </motion.div>
       </div>
@@ -231,13 +238,18 @@ function CTASection() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <h2 className="font-prata text-4xl mb-4">Be Part of the Story</h2>
+          <h2 className="font-prata text-4xl mb-4">Every elder deserves dignity and companionship.</h2>
           <p className="font-source-serif text-lg text-cotton/80 mb-8 max-w-lg mx-auto">
-            Your time can change a life.
+            Be a part of their story. Your time, skills, or contribution can make a world of difference.
           </p>
-          <button className="bg-cotton text-ink font-inter text-sm tracking-wider uppercase px-10 py-4 rounded-md hover:bg-amber hover:text-ink transition-colors">
-            Get Involved
-          </button>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <button className="bg-cotton text-ink font-inter text-sm tracking-wider uppercase px-10 py-4 rounded-md hover:bg-amber hover:text-ink transition-colors">
+              Get Involved
+            </button>
+            <button className="border border-cotton text-cotton font-inter text-sm tracking-wider uppercase px-10 py-4 rounded-md bg-transparent hover:bg-cotton/10 transition-colors">
+              Make a Donation
+            </button>
+          </div>
         </motion.div>
       </div>
     </section>
