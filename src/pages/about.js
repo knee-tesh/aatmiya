@@ -15,9 +15,10 @@ function BannerSection() {
   return (
     <section className="relative h-[40vh] flex items-center justify-center">
       <Image
-        src="/images/indian-grandparents.jpg"
+        src="/images/IMG-20260707-WA0001.jpg"
         alt="About Aatmiya Foundation"
         fill
+        sizes="100vw"
         className="object-cover"
         priority
       />
@@ -70,21 +71,77 @@ function StorySpread() {
   );
 }
 
-function StoryImage() {
+const galleryGroups = [
+  {
+    caption: "Moments of Joy",
+    images: ["IMG-20260707-WA0000.png", "IMG-20260707-WA0001.jpg", "IMG-20260707-WA0002.png"],
+    bg: "bg-cotton",
+  },
+  {
+    caption: "Community Gatherings",
+    images: ["IMG-20260707-WA0003.png", "IMG-20260707-WA0004.jpg", "IMG-20260707-WA0005.png"],
+    bg: "bg-parchment/50",
+  },
+  {
+    caption: "Health & Wellness",
+    images: ["IMG-20260707-WA0006.png", "IMG-20260707-WA0007.png", "IMG-20260707-WA0008.png"],
+    bg: "bg-cotton",
+  },
+  {
+    caption: "Celebrating Together",
+    images: ["IMG-20260707-WA0009.png", "IMG-20260707-WA0010.png", "IMG-20260707-WA0011.png"],
+    bg: "bg-parchment/50",
+  },
+];
+
+function GallerySection() {
   return (
-    <section className="section-spacing">
-      <div className="max-content">
-        <motion.div {...fadeUp}>
-          <Image
-            src="/images/indian-grandparents.jpg"
-            alt="Aatmiya community gathering"
-            width={1200}
-            height={600}
-            className="w-full rounded-lg object-cover"
-          />
-        </motion.div>
-      </div>
-    </section>
+    <>
+      {galleryGroups.map((group, gIdx) => (
+        <section key={gIdx} className={`section-spacing ${group.bg}`}>
+          <div className="max-content">
+            <motion.h2
+              className="font-prata text-2xl md:text-3xl text-center mb-8"
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+            >
+              {group.caption}
+            </motion.h2>
+            <motion.div
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={{
+                initial: {},
+                animate: { transition: { staggerChildren: 0.12 } },
+              }}
+            >
+              {group.images.map((img, i) => (
+                <motion.div
+                  key={i}
+                  className="relative aspect-[4/3] rounded-lg overflow-hidden"
+                  variants={{
+                    initial: { opacity: 0, y: 24 },
+                    animate: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+                  }}
+                >
+                  <Image
+                    src={`/images/${img}`}
+                    alt={`${group.caption} — ${i + 1}`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover"
+                  />
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        </section>
+      ))}
+    </>
   );
 }
 
@@ -151,7 +208,7 @@ export default function About() {
         <SectionDivider />
         <StorySpread />
         <SectionDivider />
-        <StoryImage />
+        <GallerySection />
         <SectionDivider />
         <TeamSection />
       </main>

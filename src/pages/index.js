@@ -10,10 +10,11 @@ function HeroSection() {
   return (
     <section className="relative h-[80vh] md:h-[90vh] flex items-end">
       <Image
-        src="/images/hero-delhi-couple.jpg"
+        src="/images/IMG-20260707-WA0010.png"
         alt="Elderly couple in Delhi park"
         fill
-        className="object-cover"
+        sizes="100vw"
+        className="object-cover opacity-70"
         priority
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
@@ -86,10 +87,12 @@ function PurposeSection() {
           >
             <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
               <Image
-                src="/images/indian-grandparents.jpg"
+                src="/images/IMG-20260707-WA0001.jpg"
                 alt="Grandparents with grandchild"
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
+                loading="eager"
               />
             </div>
           </motion.div>
