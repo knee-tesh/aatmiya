@@ -23,8 +23,8 @@ const upcomingEvents = [
 ];
 
 const pastEvents = [
-  { img: "/images/indian-elder-man.jpg", title: "Health Camp — Alambagh", date: "March 2026" },
-  { img: "/images/indian-family.jpg", title: "Community MeetUp — Lucknow", date: "February 2026" },
+  { img: "/images/IMG-20260707-WA0002.png", title: "Health Camp — Alambagh", date: "March 2026" },
+  { img: "/images/IMG-20260707-WA0003.png", title: "Community MeetUp — Lucknow", date: "February 2026" },
 ];
 
 export default function Events() {
@@ -96,7 +96,7 @@ export default function Events() {
                   }}
                 >
                   <div className="relative aspect-[16/9]">
-                    <Image src={event.img} alt={event.title} fill className="object-cover" />
+                    <Image src={event.img} alt={event.title} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
                   </div>
                   <div className="p-4">
                     <h3 className="font-inter text-base font-semibold">{event.title}</h3>
