@@ -98,6 +98,8 @@ export function initCanvas(canvas) {
   function animate(time) {
     animId = requestAnimationFrame(animate);
 
+    if (document.visibilityState === "hidden") return;
+
     // frame skip for mobile
     if (time - lastTime < frameInterval) return;
     lastTime = time;
