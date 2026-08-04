@@ -39,9 +39,9 @@ Complete visual overhaul of the Aatmiya Foundation website from warm earthy tone
 - **Gradient mesh:** 4-5 large blurred circles (aurora purple, cyan, deep violet) orbiting slowly via `requestAnimationFrame`
 - **Particles:** 40-60 small floating dots (white, 0.2-0.5 opacity) drifting upward, resetting on exit
 - Animation pauses on hidden tab (`document.visibilityState`)
-- `will-change: transform` for GPU acceleration
 - 30fps on mobile (frame skip), 60fps on desktop
 - Particles use simple `ctx.arc()` — no physics, no trails
+- `will-change` not used on canvas (meaningless for canvas-drawn elements; applies to glass cards only)
 
 ### Fallback
 - Static radial gradient for degraded environments
@@ -57,6 +57,10 @@ border: 1px solid rgba(255, 255, 255, 0.15);
 border-radius: 16px;
 ```
 
+### Mobile Optimization
+- `backdrop-filter: blur(8px)` on screens < 768px (reduced blur over animating canvas)
+- Reduce particle count to 20-30 on mobile
+
 ### Variants
 - **Subtle:** `rgba(255, 255, 255, 0.05)` — stat counters, testimonials
 - **Strong:** `rgba(255, 255, 255, 0.12)` — service cards, event cards
@@ -68,6 +72,13 @@ border-radius: 16px;
 ### Section Containers
 - Each 100vh section uses glass card wrapper for content areas
 - Hero and CTA sections are full-bleed with glass only on inner content block
+
+### About Gallery (supersedes 2026-07-07-about-gallery-split-scroll.md)
+- 12 community photos displayed in a glass-card grid (3 columns desktop, 2 tablet, 1 mobile)
+- Each photo wrapped in a subtle glass card with `border-radius: 12px` and `overflow: hidden`
+- Hover: scale 1.03 + aurora glow border
+- Hero photo and purpose image: full-width glass card with gradient overlay (same treatment as hero section)
+- Old alternating bg-cotton/bg-parchment groups and font-prata captions are dropped (incompatible with glassmorphism theme)
 
 ## Layout
 
@@ -88,8 +99,9 @@ border-radius: 16px;
 - Social icons with hover glow
 
 ### Section Layout
-- `<main>` gets `scroll-snap-type: y mandatory` (not the whole page — navbar/footer stay fixed)
-- Each section = `min-height: 100vh` with `scroll-snap-align: start`
+- `<main>` gets `scroll-snap-type: y proximity` (not mandatory — avoids trapping overflow content)
+- Hero and CTA sections: `height: 100vh` + `scroll-snap-align: start` (exact fit, safe to snap)
+- Content-heavy sections (services, about gallery, events): `min-height: 100vh` without snap (allows scrolling within)
 - Content centered vertically and horizontally within each section
 
 ## Animations & Transitions
@@ -160,6 +172,7 @@ border-radius: 16px;
 - `src/data/services.js`
 - `src/data/events.js`
 - `src/data/team.js`
+- `src/data/gallery.js` (community photos + hero/purpose images)
 
 ### Delete
 - `src/components/SectionDivider.jsx`
@@ -167,3 +180,10 @@ border-radius: 16px;
 ### Dependencies
 - Remove: `@radix-ui/react-avatar`, `@radix-ui/react-dialog`, `@radix-ui/react-separator`, `@radix-ui/react-slot`, `clsx`, `tailwind-merge`, `class-variance-authority`
 - Fonts: Load JetBrains Mono via `next/font/google` in `_app.js` (no npm package needed)
+
+## Accessibility
+
+- Preserve existing skip-link (`_document.js`) — update styles for dark background
+- Preserve `:focus-visible` outline from globals.css — restyle with aurora purple glow for visibility on dark bg
+- Keep `@media (prefers-reduced-motion: reduce)` block — disable canvas, scroll reveals; keep hover states
+- All glass cards maintain sufficient contrast ratios (frost on void = 14.5:1)
