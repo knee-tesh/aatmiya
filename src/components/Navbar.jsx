@@ -63,7 +63,7 @@ export default function Navbar() {
                 )}
               >
                 {link.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-aurora transition-transform duration-300 origin-left group-hover:w-full" />
+                <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-aurora transition-all duration-300 origin-left group-hover:w-full" />
               </Link>
             );
           })}

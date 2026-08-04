@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
-import GlassCard from "@/components/GlassCard";
 import { galleryGroups } from "@/data/gallery";
 import { team } from "@/data/team";
 
@@ -113,9 +112,9 @@ function TeamSection() {
               className="text-center"
               variants={{ initial: { opacity: 0, y: 24 }, animate: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } } }}
             >
-              <GlassCard variant="subtle" className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 p-0">
+              <div className="w-20 h-20 rounded-full bg-aurora/10 border border-aurora/30 flex items-center justify-center mx-auto mb-4">
                 <span className="font-inter text-2xl font-semibold text-aurora">{person.initial}</span>
-              </GlassCard>
+              </div>
               <h3 className="font-inter text-base font-semibold">{person.name}</h3>
               <p className="font-inter text-sm text-white/50 mb-1">{person.role}</p>
               <p className="font-inter text-xs text-white/30">{person.phone}</p>

@@ -51,7 +51,7 @@ function HeroSection() {
             </span>
           </h1>
           <p className="text-lg md:text-xl text-white/60 mt-6 max-w-2xl mx-auto">
-            Aatmiya is a non-profit organisation dedicated to serving our elderly community with dignity, companionship, and compassionate care.
+            Aatmiya is a non-profit organisation dedicated to serving our elderly community with dignity, companionship, and compassionate care through group activities, health services, and meaningful connection.
           </p>
           <div className="mt-10 flex flex-wrap gap-4 justify-center">
             <GlowButton variant="primary">Join Us as a Volunteer</GlowButton>
@@ -110,10 +110,10 @@ function PurposeSection() {
             <h2 className="text-4xl mb-6">Celebrating Our Elders</h2>
             <div className="text-base leading-relaxed space-y-4 text-white/60">
               <p>
-                Aatmiya is a non-profit organisation dedicated to providing elderly citizens with compassionate companionship, engaging group activities, and accessible healthcare services.
+                Aatmiya is a non-profit organisation dedicated to providing elderly citizens with compassionate companionship, engaging group activities, and accessible healthcare services. We believe that aging should be celebrated, not isolated.
               </p>
               <p>
-                Based in Lucknow, we organize regular health checkup camps, community meetups, games and activities, wellness sessions, and counselling services.
+                Based in Lucknow, we organize regular health checkup camps, community meetups, games and activities, wellness sessions, and counselling services &mdash; all designed to bring joy, health, and connection to the lives of our elderly community members.
               </p>
             </div>
           </motion.div>

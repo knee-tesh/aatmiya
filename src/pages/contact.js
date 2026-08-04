@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { Phone, Mail, Send, CheckCircle, AlertCircle } from "lucide-react";
+import { Phone, Send, CheckCircle, AlertCircle } from "lucide-react";
 import { useState } from "react";
 import GlassCard from "@/components/GlassCard";
 import GlowButton from "@/components/GlowButton";

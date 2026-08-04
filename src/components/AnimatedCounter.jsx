@@ -10,7 +10,7 @@ export default function AnimatedCounter({ target, suffix = "", duration = 2000 }
   useEffect(() => {
     if (!isInView) return;
 
-    let start = 0;
+    let rafId;
     const startTime = performance.now();
 
     function tick(now) {
@@ -18,12 +18,12 @@ export default function AnimatedCounter({ target, suffix = "", duration = 2000 }
       const progress = Math.min(elapsed / duration, 1);
       // ease-out quad
       const eased = 1 - (1 - progress) * (1 - progress);
-      start = Math.round(eased * target);
-      setCount(start);
-      if (progress < 1) requestAnimationFrame(tick);
+      setCount(Math.round(eased * target));
+      if (progress < 1) rafId = requestAnimationFrame(tick);
     }
 
-    requestAnimationFrame(tick);
+    rafId = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(rafId);
   }, [isInView, target, duration]);
 
   return (
