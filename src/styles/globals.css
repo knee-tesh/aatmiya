@@ -1,49 +1,88 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ink: #1A1A1A;
-  --color-parchment: #FBF6ED;
-  --color-amber: #D4A853;
-  --color-walnut: #8B5E3C;
-  --color-tamarind: #6B3A2A;
-  --color-cotton: #FFFFFF;
+  --color-void: #0A0A1A;
+  --color-nebula: #1A1A3E;
+  --color-aurora: #6C63FF;
+  --color-cyan: #00D4FF;
+  --color-frost: rgba(255, 255, 255, 0.9);
+  --color-mist: rgba(255, 255, 255, 0.6);
 
-  --font-prata: Prata, serif;
-  --font-source-serif: "Source Serif 4", serif;
   --font-inter: Inter, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
 }
 
 @layer base {
   body {
-    @apply bg-parchment text-ink font-source-serif;
+    @apply bg-void text-frost font-inter;
+    overflow-y: scroll;
   }
 
   h1 {
-    @apply font-prata text-5xl;
+    @apply text-5xl font-semibold tracking-tight;
   }
 
   h2 {
-    @apply font-prata text-4xl;
+    @apply text-4xl font-semibold tracking-tight;
   }
 
   h3 {
-    @apply font-prata text-2xl;
+    @apply text-2xl font-semibold;
   }
 }
 
 @layer utilities {
-  .section-spacing {
-    @apply py-16 md:py-24;
+  .glass {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+  }
+
+  .glass-subtle {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+  }
+
+  .glass-strong {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+  }
+
+  .glass-nav {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .max-content {
     @apply max-w-6xl mx-auto px-4 md:px-8;
   }
+
+  .snap-section {
+    scroll-snap-align: start;
+  }
+}
+
+@media (max-width: 768px) {
+  .glass, .glass-subtle, .glass-strong, .glass-nav {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
 }
 
 *:focus-visible {
-  outline: 2px solid #D4A853;
+  outline: 2px solid #6C63FF;
   outline-offset: 2px;
+  box-shadow: 0 0 15px rgba(108, 99, 255, 0.4);
 }
 
 .skip-link {
@@ -52,7 +91,7 @@
   left: 0;
   z-index: 100;
   padding: 8px 16px;
-  background: #8B5E3C;
+  background: #6C63FF;
   color: #FFFFFF;
   font-family: Inter, sans-serif;
 }
@@ -71,6 +110,6 @@
 }
 
 ::selection {
-  background: #D4A853;
-  color: #1A1A1A;
+  background: #6C63FF;
+  color: #FFFFFF;
 }
