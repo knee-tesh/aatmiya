@@ -35,10 +35,10 @@ function StorySpread() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <motion.div {...fadeUp} className="text-base leading-relaxed text-white/60 space-y-4">
             <p>Aatmiya was founded with a simple belief: every elder deserves companionship, dignity, and purpose.</p>
-            <p>Aatmiya is a non-profit organisation dedicated to providing elderly citizens with compassionate companionship, engaging group activities, and accessible healthcare services.</p>
+            <p>Aatmiya is a non-profit organisation dedicated to providing elderly citizens with compassionate companionship, engaging group activities, and accessible healthcare services. We believe that aging should be celebrated, not isolated.</p>
           </motion.div>
           <motion.div {...fadeUp} className="text-base leading-relaxed text-white/60 space-y-4">
-            <p>Based in Lucknow, we organize regular health checkup camps, community meetups, games and activities, wellness sessions, and counselling services.</p>
+            <p>Based in Lucknow, we organize regular health checkup camps, community meetups, games and activities, wellness sessions, and counselling services &mdash; all designed to bring joy, health, and connection to the lives of our elderly community members.</p>
             <p>Our name, Aatmiya, means &ldquo;of the soul&rdquo; — reflecting our commitment to care that comes from the heart.</p>
           </motion.div>
         </div>
