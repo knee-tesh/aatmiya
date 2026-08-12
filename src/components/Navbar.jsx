@@ -34,19 +34,21 @@ export default function Navbar() {
   return (
     <nav
       className={clsx(
-        "fixed top-0 left-0 right-0 z-50 glass-nav transition-all duration-300",
-        scrolled ? "py-2" : "py-4"
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        scrolled
+          ? "py-2 bg-surface/95 backdrop-blur-md shadow-sm border-b border-border"
+          : "py-4 bg-surface/90 backdrop-blur-sm"
       )}
     >
       <div className="max-content flex items-center justify-between">
-        <Link href="/" className="flex-shrink-0">
+        <Link href="/" className="flex-shrink-0" aria-label="Aatmiya Foundation Home">
           <Image
             src="/images/logo.svg"
             alt="Aatmiya Foundation"
-            width={120}
-            height={40}
+            width={140}
+            height={45}
             priority
-            className="h-8 md:h-10 w-auto"
+            className="h-10 md:h-12 w-auto"
           />
         </Link>
 
@@ -58,40 +60,46 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={clsx(
-                  "font-inter text-sm tracking-wider uppercase transition-colors relative group",
-                  isActive ? "text-aurora" : "text-white/70 hover:text-white"
+                  "font-body text-base font-medium transition-colors relative group",
+                  isActive ? "text-primary" : "text-text-muted hover:text-primary"
                 )}
               >
                 {link.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-aurora transition-all duration-300 origin-left group-hover:w-full" />
+                <span
+                  className={clsx(
+                    "absolute -bottom-1 left-0 h-[2px] bg-primary transition-all duration-300 origin-left",
+                    isActive ? "w-full" : "w-0 group-hover:w-full"
+                  )}
+                />
               </Link>
             );
           })}
         </div>
 
         <button
-          className="lg:hidden p-2 text-white/70 hover:text-white transition-colors"
+          className="lg:hidden p-3 text-text-muted hover:text-primary transition-colors cursor-pointer"
           onClick={() => setMobileOpen(true)}
           aria-label="Open menu"
         >
-          <Menu size={24} />
+          <Menu size={28} />
         </button>
       </div>
 
       {mobileOpen && (
         <div className="fixed inset-0 z-50 lg:hidden">
           <div
-            className="fixed inset-0 bg-black/60"
+            className="fixed inset-0 bg-black/40"
             onClick={() => setMobileOpen(false)}
+            aria-hidden="true"
           />
-          <div className="fixed top-0 right-0 h-full w-72 glass-strong p-6">
+          <div className="fixed top-0 right-0 h-full w-72 bg-surface p-6 shadow-xl">
             <div className="flex justify-end mb-8">
               <button
                 onClick={() => setMobileOpen(false)}
-                className="p-2 text-white/70 hover:text-white transition-colors"
+                className="p-3 text-text-muted hover:text-primary transition-colors cursor-pointer"
                 aria-label="Close menu"
               >
-                <X size={24} />
+                <X size={28} />
               </button>
             </div>
             <div className="flex flex-col gap-6">
@@ -102,8 +110,8 @@ export default function Navbar() {
                     key={link.href}
                     href={link.href}
                     className={clsx(
-                      "font-inter text-base tracking-wider uppercase transition-colors",
-                      isActive ? "text-aurora" : "text-white/70 hover:text-white"
+                      "font-body text-lg font-medium transition-colors",
+                      isActive ? "text-primary" : "text-text-muted hover:text-primary"
                     )}
                   >
                     {link.label}

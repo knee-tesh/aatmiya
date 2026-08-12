@@ -2,13 +2,13 @@ import Link from "next/link";
 import clsx from "clsx";
 
 const base =
-  "inline-flex items-center justify-center font-inter text-sm tracking-wider uppercase px-8 py-3 rounded-xl transition-all duration-300";
+  "inline-flex items-center justify-center font-body text-base font-semibold px-8 py-4 rounded-xl transition-all duration-200 min-h-[48px] cursor-pointer";
 
 const variants = {
   primary:
-    "bg-gradient-to-r from-aurora to-cyan text-white hover:shadow-[0_0_30px_rgba(108,99,255,0.4)] hover:scale-[1.02]",
+    "bg-gradient-to-r from-primary to-cta text-white hover:shadow-[0_4px_20px_rgba(180,83,9,0.3)] hover:scale-[1.02] active:scale-[0.98]",
   outline:
-    "border border-white/30 text-white bg-transparent hover:bg-white/10 hover:border-white/50 hover:scale-[1.02]",
+    "border-2 border-primary text-primary bg-transparent hover:bg-primary/10 hover:scale-[1.02] active:scale-[0.98]",
 };
 
 export default function GlowButton({
@@ -16,6 +16,7 @@ export default function GlowButton({
   href,
   className,
   children,
+  type = "button",
   ...props
 }) {
   const classes = clsx(base, variants[variant], className);
@@ -29,7 +30,7 @@ export default function GlowButton({
   }
 
   return (
-    <button type="button" className={classes} {...props}>
+    <button type={type} className={classes} {...props}>
       {children}
     </button>
   );

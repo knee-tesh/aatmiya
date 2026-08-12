@@ -1,18 +1,18 @@
 import "@/styles/globals.css";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Nunito, Nunito_Sans } from "next/font/google";
 import Head from "next/head";
 import Layout from "@/components/Layout";
 
-const inter = Inter({
+const nunito = Nunito({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-inter",
+  weight: ["600", "700", "800"],
+  variable: "--font-heading",
 });
 
-const jetbrainsMono = JetBrains_Mono({
+const nunitoSans = Nunito_Sans({
   subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-mono",
+  weight: ["400", "500", "600"],
+  variable: "--font-body",
 });
 
 export default function App({ Component, pageProps }) {
@@ -34,7 +34,7 @@ export default function App({ Component, pageProps }) {
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Organization",
+              "@type": "NGO",
               name: "Aatmiya Foundation",
               description: "Non-profit dedicated to providing elderly citizens with group activities, health services, and companionship.",
               url: "https://aatmiya.org",
@@ -43,7 +43,7 @@ export default function App({ Component, pageProps }) {
           }}
         />
       </Head>
-      <div className={`${inter.variable} ${jetbrainsMono.variable}`}>
+      <div className={`${nunito.variable} ${nunitoSans.variable}`}>
         <Layout>
           <Component {...pageProps} />
         </Layout>
